@@ -172,13 +172,11 @@ log(greetings);
 log("------------ Loops ------------");
 
 // 1. For Loop
-log("For Loop:");
 for (let i = 0; i < 5; i++) {
   log(`Iteration ${i + 1}`);
 }
 
 // 2. While Loop
-log("\nWhile Loop:");
 let count = 0;
 while (count < 5) {
   log(`Count is ${count}`);
@@ -186,7 +184,6 @@ while (count < 5) {
 }
 
 // 3. Do...While Loop
-log("\nDo...While Loop:");
 let num = 0;
 do {
   log(`Number is ${num}`);
@@ -194,14 +191,12 @@ do {
 } while (num < 5);
 
 // 4. For...of Loop (for iterating over iterable objects like arrays)
-log("\nFor...of Loop:");
 const foods = ["Apple", "Pizza", "Ice Cream"];
 for (const food of foods) {
   log(`Food: ${food}`);
 }
 
 // 5. For...in Loop (for iterating over object properties)
-log("\nFor...in Loop:");
 const human = { name: "John", age: 30, city: "New York" };
 for (const key in human) {
   log(`${key}: ${human[key]}`);
@@ -211,26 +206,22 @@ for (const key in human) {
 log("------------ Functions ------------");
 
 // 1. Function Declaration
-log("Function Declaration:");
 function greet(name) {
   return `Hello, ${name}!`;
 }
 log(greet("Alice")); // Output: Hello, Alice!
 
 // 2. Function Expression
-log("\nFunction Expression:");
 const add = function (a, b) {
   return a + b;
 };
 log(add(5, 3)); // Output: 8
 
 // 3. Arrow Function
-log("\nArrow Function:");
 const multiply = (a, b) => a * b;
 log(multiply(4, 7)); // Output: 28
 
 // 4. Function with Default Parameters
-log("\nFunction with Default Parameters:");
 function greetUser(name = "Guest") {
   return `Welcome, ${name}!`;
 }
@@ -238,7 +229,6 @@ log(greetUser()); // Output: Welcome, Guest!
 log(greetUser("Bob")); // Output: Welcome, Bob!
 
 // 5. Returning a Function
-log("\nReturning a Function:");
 function outerFunction() {
   return function innerFunction() {
     return "Inner Function!";
@@ -248,13 +238,11 @@ const inner = outerFunction();
 log(inner()); // Output: Inner Function!
 
 // 6. Immediately Invoked Function Expression (IIFE)
-log("\nImmediately Invoked Function Expression (IIFE):");
 (function () {
   log("This is an IIFE!");
 })(); // Output: This is an IIFE!
 
 // 7. Function as an Argument
-log("\nFunction as an Argument:");
 function executeCallback(callback) {
   callback();
 }
@@ -271,20 +259,16 @@ executeCallback(() => log("Callback executed!")); // Output: Callback executed!
 // Arrays
 log("------------ Arrays ------------");
 // 1. Creating an Array
-log("Creating an Array:");
 const fruits = ["Apple", "Banana", "Cherry"];
 log(fruits); // Output: [ 'Apple', 'Banana', 'Cherry' ]
 
 // 2. Accessing Elements
-log("\nAccessing Elements:");
 log(fruits[1]); // Output: Banana
 
 // 3. Array Length
-log("\nArray Length:");
 log(fruits.length); // Output: 3
 
 // 4. Adding Elements
-log("\nAdding Elements:");
 fruits.push("Date"); // Adds to the end
 log(fruits); // Output: [ 'Apple', 'Banana', 'Cherry', 'Date' ]
 
@@ -292,7 +276,6 @@ fruits.unshift("Elderberry"); // Adds to the beginning
 log(fruits); // Output: [ 'Elderberry', 'Apple', 'Banana', 'Cherry', 'Date' ]
 
 // 5. Removing Elements
-log("\nRemoving Elements:");
 fruits.pop(); // Removes from the end
 log(fruits); // Output: [ 'Elderberry', 'Apple', 'Banana', 'Cherry' ]
 
@@ -300,12 +283,10 @@ fruits.shift(); // Removes from the beginning
 log(fruits); // Output: [ 'Apple', 'Banana', 'Cherry' ]
 
 // 6. Slicing an Array
-log("\nSlicing an Array:");
 const citrus = fruits.slice(1, 3); // Slices from index 1 to 3 (exclusive)
 log(citrus); // Output: [ 'Banana', 'Cherry' ]
 
 // 7. Iterating Over an Array
-log("\nIterating Over an Array:");
 fruits.forEach((fruit) => {
   log(fruit);
 });
@@ -315,32 +296,26 @@ fruits.forEach((fruit) => {
 // Cherry
 
 // 8. Mapping an Array
-log("\nMapping an Array:");
 const uppercaseFruits = fruits.map((fruit) => fruit.toUpperCase());
 log(uppercaseFruits); // Output: [ 'APPLE', 'BANANA', 'CHERRY' ]
 
 // 9. Filtering an Array
-log("\nFiltering an Array:");
 const filteredFruits = fruits.filter((fruit) => fruit.startsWith("B"));
 log(filteredFruits); // Output: [ 'Banana' ]
 
 // 10. Finding an Element
-log("\nFinding an Element:");
 const cherryIndex = fruits.indexOf("Cherry");
 log(cherryIndex); // Output: 2
 
 // 11. Checking if an Element Exists
-log("\nChecking if an Element Exists:");
 const hasApple = fruits.includes("Apple");
 log(hasApple); // Output: true
 
 // 12. Sorting an Array
-log("\nSorting an Array:");
 fruits.sort();
 log(fruits); // Output: [ 'Apple', 'Banana', 'Cherry' ]
 
 // 13. Reversing an Array
-log("\nReversing an Array:");
 fruits.reverse();
 log(fruits); // Output: [ 'Cherry', 'Banana', 'Apple' ]
 
