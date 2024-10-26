@@ -1,9 +1,26 @@
+## Table of Contents
+
+**Notes on The Javascript Programming Language**
+
+1. [The Basics](#the-basics)
+2. [Strings](#strings)
+3. [Numbers](#numbers)
+4. [Math Operations](#math-operations)
+5. [Control Flow](#control-flow)
+6. [Functions](#functions)
+7. [Arrays](#arrays)
+8. [Objects](#objects)
+9. [JSON](#json)
+10. [Concurrency](#concurrency)
+
+## The Basics
+
 ```js
 // Create an alias for console.log
 const log = console.log;
+```
 
-// Basic Data Types in JS
-log("------------ Basics ------------");
+```js
 const aNumber = 42;
 const aString = "Hello";
 const aBoolean = true;
@@ -14,12 +31,13 @@ log(typeof aNumber); // Output: number
 log(typeof aString); // Output: string
 log(typeof aBoolean); // Output: boolean
 log(typeof anUndefined); // Output: undefined
+```
 
-// Strings
-log("------------ Strings ------------");
+## Strings
+
+```js
 const message = "Mathematics";
 
-// String Methods
 // length - returns the number of characters in a string
 log(message.length); // Output: 11
 
@@ -46,15 +64,16 @@ log(message.includes("science")); // Output: false
 // split() - splits a string into an array of substrings
 const words = "Learn JavaScript String Methods";
 log(words.split(" ")); // Output: ['Learn', 'JavaScript', 'String', 'Methods']
+```
 
-// Numbers
-log("------------ Numbers ------------");
+## Numbers
+
+```js
 const myNumber = 42;
 let myFloat = 42.01;
 const myString = "42";
 
 log(myNumber === myFloat); // Output: false
-
 myFloat = 42.0;
 log(myNumber === myFloat); // Output: true
 
@@ -63,7 +82,6 @@ log(Number(myString) + 3); // Output: 45 (String converted to number and added)
 log(Number("Michael")); // Output: NaN (Not a number)
 log(Number(true)); // Output: 1 (true is converted to 1, false to 0)
 
-// Number Methods
 // isInteger - checks if a value is an integer
 log(Number.isInteger(myNumber)); // Output: true
 log(Number.isInteger(myFloat)); // Output: true
@@ -86,9 +104,11 @@ log(typeof myNumber.toString()); // Output: "string"
 // isNaN - checks if a value is NaN (Not a Number)
 log(Number.isNaN(Number("Michael"))); // Output: true
 log(Number.isNaN(42)); // Output: false
+```
 
-// Math Methods
-log("------------ Math Methods ------------");
+## Math Operations
+
+```js
 // trunc - removes the decimal part of a number
 log(Math.trunc(4.9)); // Output: 4
 log(Math.trunc(-4.9)); // Output: -4
@@ -115,12 +135,14 @@ log(Math.max(3, 5, 1, 8)); // Output: 8
 log(Math.random()); // Output: a random number between 0 and 1
 
 // Example: generating a random integer between 1 and 10
-log(Math.floor(Math.random() * 10) + 1); // Output: a random integer from 1 to 10
+log(Math.floor(Math.random() \* 10) + 1); // Output: a random integer from 1 to 10
+```
 
-// Conditional Statements: If/Switch/Ternary
-log("------------ Conditional Statements: If/Switch/Ternary ------------");
+## Control Flow
 
-// 1. If Statement
+### If Statement
+
+```js
 const age = 20;
 
 if (age < 18) {
@@ -130,8 +152,11 @@ if (age < 18) {
 } else {
   log("You are a senior.");
 }
+```
 
-// 2. Switch Statement
+### Switch Statement
+
+```js
 const day = 3;
 let dayName;
 
@@ -162,15 +187,19 @@ switch (day) {
 }
 
 log(`Today is ${dayName}.`);
+```
 
-// 3. Ternary Operator
+### Ternary Operator
+
+```js
 const isLoggedIn = true;
 const greetings = isLoggedIn ? "Welcome back!" : "Please log in.";
 log(greetings);
+```
 
-// Loops
-log("------------ Loops ------------");
+### Loops
 
+```js
 // 1. For Loop
 for (let i = 0; i < 5; i++) {
   log(`Iteration ${i + 1}`);
@@ -201,34 +230,48 @@ const human = { name: "John", age: 30, city: "New York" };
 for (const key in human) {
   log(`${key}: ${human[key]}`);
 }
+```
 
-// Functions
-log("------------ Functions ------------");
+## Functions
 
-// 1. Function Declaration
+### Function Declaration
+
+```js
 function greet(name) {
   return `Hello, ${name}!`;
 }
 log(greet("Alice")); // Output: Hello, Alice!
+```
 
-// 2. Function Expression
+### Function Expression
+
+```js
 const add = function (a, b) {
   return a + b;
 };
 log(add(5, 3)); // Output: 8
+```
 
-// 3. Arrow Function
-const multiply = (a, b) => a * b;
+### Arrow Function
+
+```js
+const multiply = (a, b) => a \* b;
 log(multiply(4, 7)); // Output: 28
+```
 
-// 4. Function with Default Parameters
+### Function with Default Parameters
+
+```js
 function greetUser(name = "Guest") {
   return `Welcome, ${name}!`;
 }
 log(greetUser()); // Output: Welcome, Guest!
 log(greetUser("Bob")); // Output: Welcome, Bob!
+```
 
-// 5. Returning a Function
+### Returning a Function
+
+```js
 function outerFunction() {
   return function innerFunction() {
     return "Inner Function!";
@@ -236,57 +279,64 @@ function outerFunction() {
 }
 const inner = outerFunction();
 log(inner()); // Output: Inner Function!
+```
 
-// 6. Immediately Invoked Function Expression (IIFE)
+### Immediately Invoked Function Expression (IIFE)
+
+```js
 (function () {
   log("This is an IIFE!");
 })(); // Output: This is an IIFE!
+```
 
-// 7. Function as an Argument
+### Function as an Argument
+
+```js
 function executeCallback(callback) {
   callback();
 }
 executeCallback(() => log("Callback executed!")); // Output: Callback executed!
+```
 
-// 1. Function Declaration: A named function that can be called before it is defined (hoisted).
-// 2. Function Expression: A function defined as part of a larger expression, such as an assignment to a variable. It is not hoisted.
-// 3. Arrow Function: A concise way to write functions using the => syntax. They do not have their own this, which is useful for certain contexts.
-// 4. Default Parameters: Allow you to specify default values for function parameters if no value or undefined is passed.
-// 5. Returning a Function: A function can return another function, which can then be called later.
-// 6. Immediately Invoked Function Expression (IIFE): A function that runs as soon as it is defined. It's useful for creating a new scope.
-// 7. Function as an Argument: Functions in JavaScript are first-class citizens, meaning you can pass them as arguments to other functions.
+- Function Declaration: A named function that can be called before it is defined (hoisted).
+- Function Expression: A function defined as part of a larger expression, such as an assignment to a variable. It is not hoisted.
+- Arrow Function: A concise way to write functions using the => syntax. They do not have their own this, which is useful for certain contexts.
+- Default Parameters: Allow you to specify default values for function parameters if no value or undefined is passed.
+- Returning a Function: A function can return another function, which can then be called later.
+- Immediately Invoked Function Expression (IIFE): A function that runs as soon as it is defined. It's useful for creating a new scope.
+- Function as an Argument: Functions in JavaScript are first-class citizens, meaning you can pass them as arguments to other functions.
 
-// Arrays
-log("------------ Arrays ------------");
-// 1. Creating an Array
+## Arrays
+
+```js
 const fruits = ["Apple", "Banana", "Cherry"];
 log(fruits); // Output: [ 'Apple', 'Banana', 'Cherry' ]
 
-// 2. Accessing Elements
+// Accessing Elements
 log(fruits[1]); // Output: Banana
 
-// 3. Array Length
+// Array Length
 log(fruits.length); // Output: 3
 
-// 4. Adding Elements
+// Adding Elements
 fruits.push("Date"); // Adds to the end
 log(fruits); // Output: [ 'Apple', 'Banana', 'Cherry', 'Date' ]
 
 fruits.unshift("Elderberry"); // Adds to the beginning
 log(fruits); // Output: [ 'Elderberry', 'Apple', 'Banana', 'Cherry', 'Date' ]
 
-// 5. Removing Elements
+// Removing Elements
 fruits.pop(); // Removes from the end
 log(fruits); // Output: [ 'Elderberry', 'Apple', 'Banana', 'Cherry' ]
 
 fruits.shift(); // Removes from the beginning
 log(fruits); // Output: [ 'Apple', 'Banana', 'Cherry' ]
 
-// 6. Slicing an Array
+// Slicing an Array
 const citrus = fruits.slice(1, 3); // Slices from index 1 to 3 (exclusive)
 log(citrus); // Output: [ 'Banana', 'Cherry' ]
 
-// 7. Iterating Over an Array
+// Iterating Over an Array
 fruits.forEach((fruit) => {
   log(fruit);
 });
@@ -295,33 +345,34 @@ fruits.forEach((fruit) => {
 // Banana
 // Cherry
 
-// 8. Mapping an Array
+// Mapping an Array
 const uppercaseFruits = fruits.map((fruit) => fruit.toUpperCase());
 log(uppercaseFruits); // Output: [ 'APPLE', 'BANANA', 'CHERRY' ]
 
-// 9. Filtering an Array
+// Filtering an Array
 const filteredFruits = fruits.filter((fruit) => fruit.startsWith("B"));
 log(filteredFruits); // Output: [ 'Banana' ]
 
-// 10. Finding an Element
+// Finding an Element
 const cherryIndex = fruits.indexOf("Cherry");
 log(cherryIndex); // Output: 2
 
-// 11. Checking if an Element Exists
+// Checking if an Element Exists
 const hasApple = fruits.includes("Apple");
 log(hasApple); // Output: true
 
-// 12. Sorting an Array
+// Sorting an Array
 fruits.sort();
 log(fruits); // Output: [ 'Apple', 'Banana', 'Cherry' ]
 
-// 13. Reversing an Array
+// Reversing an Array
 fruits.reverse();
 log(fruits); // Output: [ 'Cherry', 'Banana', 'Apple' ]
+```
 
-// Objects
-log("------------ Objects ------------");
+## Objects
 
+```js
 // Define an object with properties and methods
 const person = {
   firstName: "John",
@@ -369,23 +420,44 @@ log(person.age); // Output: undefined
 
 // Checking if a property exists
 log("hobbies" in person); // Output: true
+```
 
-// JSON
-log("------------ JSON ------------");
-// JSON is a lightweight data interchange format, commonly used to exchange data between a server and a web application.
-// JSON is often represented as a string and resembles JavaScript objects.
+## JSON
 
-// Converting JSON to JavaScript Object
-// To work with JSON data in JavaScript, use JSON.parse() to convert a JSON string into a JavaScript object.
+- JSON is a lightweight data interchange format, commonly used to exchange data between a server and a web application.
+- JSON is often represented as a string and resembles JavaScript objects.
+
+```json
+{
+  "name": "Alice",
+  "age": 30,
+  "isMember": true,
+  "hobbies": ["reading", "gardening"],
+  "address": {
+    "city": "New York",
+    "zip": "10001"
+  }
+}
+```
+
+### Converting JSON to JavaScript Object
+
+- To work with JSON data in JavaScript, use JSON.parse() to convert a JSON string into a JavaScript object.
+
+```js
 const jsonString = '{"name": "Alice", "age": 30, "isMember": true}';
 const user = JSON.parse(jsonString);
 
 log(user.name); // Output: Alice
 log(user.age); // Output: 30
 log(user.isMember); // Output: true
+```
 
-// Converting JavaScript Object to JSON
-// To send or store JavaScript data in JSON format, use JSON.stringify() to convert a JavaScript object into a JSON string.
+### Converting JavaScript Object to JSON
+
+- To send or store JavaScript data in JSON format, use JSON.stringify() to convert a JavaScript object into a JSON string.
+
+```js
 const userObject = {
   name: "Bob",
   age: 25,
@@ -394,12 +466,13 @@ const userObject = {
 
 const jsonStringified = JSON.stringify(userObject);
 log(jsonStringified); // Output: '{"name":"Bob","age":25,"isMember":false}'
+```
 
-// Promises / Fetch / Async & Await
-log("------------ Promises / Fetch / Async & Await ------------");
+## Concurrency
 
-// A Promise represents a value that may be available now, or in the future, or never. Promises are used to handle asynchronous operations.
+- A Promise represents a value that may be available now, or in the future, or never. Promises are used to handle asynchronous operations.
 
+```js
 // Example of a basic Promise
 const myPromise = new Promise((resolve, reject) => {
   let success = true;
@@ -419,9 +492,11 @@ myPromise
   .catch((error) => {
     log(error); // In case of failure: Operation failed.
   });
+```
 
-// The fetch API is used to make HTTP requests, and it returns a Promise. It allows you to fetch resources asynchronously.
+- The fetch API is used to make HTTP requests, and it returns a Promise. It allows you to fetch resources asynchronously.
 
+```js
 // Fetch example to get data from an API
 fetch("https://jsonplaceholder.typicode.com/posts/1")
   .then((response) => response.json()) // Converts the response to JSON
@@ -431,9 +506,11 @@ fetch("https://jsonplaceholder.typicode.com/posts/1")
   .catch((error) => {
     log("Error fetching data:", error);
   });
+```
 
-// The async/await syntax makes working with Promises easier by allowing you to write asynchronous code that looks like synchronous code. The async keyword declares a function that returns a Promise, and await pauses the execution until the Promise is resolved or rejected.
+- The async/await syntax makes working with Promises easier by allowing you to write asynchronous code that looks like synchronous code. The async keyword declares a function that returns a Promise, and await pauses the execution until the Promise is resolved or rejected.
 
+```js
 // Async function example
 async function fetchData() {
   try {
